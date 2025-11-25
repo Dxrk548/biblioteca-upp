@@ -1,0 +1,50 @@
+:root{
+	--bg: #ffffff;
+	--muted-bg: #f3f6f9;
+	--navy: #06263a;
+	--aqua: #2dd4bf;
+	--text: #071228;
+	--muted: #6b7280;
+}
+
+*{box-sizing:border-box}
+body{
+	margin:0;
+	padding:0;
+	background:var(--muted-bg);
+	color:var(--text);
+	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.app{max-width:980px;margin:28px auto;padding:16px}
+
+.header{background:linear-gradient(90deg, rgba(6,38,58,1) 0%, rgba(10,54,84,1) 100%);padding:14px;border-radius:8px;color:#fff}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{margin:0;font-size:20px;font-weight:700;color:var(--aqua)}
+.nav a{color:rgba(255,255,255,0.9);text-decoration:none;margin-left:14px;padding:6px 10px;border-radius:6px}
+.nav a:hover{background:rgba(255,255,255,0.06)}
+
+.main{margin-top:18px}
+
+.card{background:var(--bg);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(7,18,40,0.06)}
+
+.hero{padding:18px;margin-bottom:12px}
+.hero h2{margin:0 0 6px 0}
+.hero .muted{color:var(--muted)}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{padding:10px 14px;border-radius:8px;border:none;cursor:pointer;background:transparent;color:var(--navy);font-weight:600}
+.btn:hover{opacity:0.92}
+.btn-primary{background:linear-gradient(90deg,var(--aqua),#2bb6a8);color:#042033}
+.btn-secondary{background:var(--navy);color:#fff}
+
+.login-card{max-width:420px;margin:10px 0}
+.form-row{margin-top:10px}
+.form-control{width:100%;padding:10px;border:1px solid #e6eef2;border-radius:8px}
+.error{color:#b91c1c;margin-top:8px}
+
+@media (max-width:640px){
+	.header-inner{flex-direction:column;align-items:flex-start}
+	.app{padding:12px;margin:12px}
+	.actions{flex-direction:column}
+}
