@@ -7,8 +7,7 @@ export default function App(){
         <div className="header-inner">
           <h1 className="logo">Biblioteca UPP</h1>
           <nav className="nav">
-            <Link to="/">Inicio</Link>
-            <Link to="/login">Login</Link>
+            <Link to="/app">Inicio</Link>
           </nav>
         </div>
       </header>

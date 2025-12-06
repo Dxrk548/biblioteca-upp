@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Home(){
   return (
     <div>
@@ -9,8 +11,7 @@ export default function Home(){
       <div className="card actions" style={{marginTop:12}}>
         <button className="btn btn-primary">Buscar libros</button>
         <button className="btn">Catálogo</button>
-        <button className="btn">Mis préstamos</button>
-        <button className="btn btn-secondary">Administración</button>
+        <Link to="/app/mis-prestamos" className="btn">Mis préstamos</Link>
       </div>
     </div>
   )
