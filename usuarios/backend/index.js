@@ -63,6 +63,35 @@ async function main() {
     }
   });
 
+    // OBTENER TODOS LOS LIBROS (CATÁLOGO)
+app.get("/api/libros", async (req, res) => {
+  try {
+    const [rows] = await db.execute("SELECT * FROM libros");
+    res.json({ ok: true, libros: rows });
+  } catch (error) {
+    res.status(500).json({ ok: false, message: "Error al obtener los libros" });
+  }
+});
+
+
+// BUSCAR LIBROS
+app.get("/api/libros/buscar", async (req, res) => {
+  const { q } = req.query;
+
+  try {
+    const [rows] = await db.execute(
+      `SELECT * FROM libros
+       WHERE titulo LIKE ? OR autor LIKE ? OR genero LIKE ?`,
+      [`%${q}%`, `%${q}%`, `%${q}%`]
+    );
+
+    res.json({ ok: true, resultados: rows });
+  } catch (error) {
+    res.status(500).json({ ok: false, message: "Error al buscar libros" });
+  }
+});
+
+
   app.get("/api/prestamos/:id_usuario", async (req, res) => {
     const { id_usuario } = req.params;
     try {

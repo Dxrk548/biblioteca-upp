@@ -5,6 +5,8 @@ import App from './App'
 import Login from './pages/Login'
 import Registrar from './pages/registrar'
 import Home from './pages/Home'
+import Catalogo from './pages/Catalogo'
+import BuscarLibros from './pages/BuscarLibros'
 import MisPrestamos from "./pages/MisPrestamos"
 import ProtectedRoute from './components/ProtectedRoute'
 import './main.css'
@@ -20,6 +22,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="/app" element={<App />}>
             <Route index element={<Home />} />
             <Route path="mis-prestamos" element={<MisPrestamos />} />
+            <Route path="catalogo" element={<Catalogo />} />
+            <Route path="buscar-libros" element={<BuscarLibros />} />
           </Route>
         </Route>
 

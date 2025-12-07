@@ -9,8 +9,9 @@ export default function Home(){
       </div>
 
       <div className="card actions" style={{marginTop:12}}>
-        <button className="btn btn-primary">Buscar libros</button>
-        <button className="btn">Catálogo</button>
+        <Link to="/app/buscar-libros" className="btn btn-primary">Buscar libros</Link>
+        <Link to="/app/catalogo" className="btn">Catálogo</Link>
+
         <Link to="/app/mis-prestamos" className="btn">Mis préstamos</Link>
       </div>
     </div>
