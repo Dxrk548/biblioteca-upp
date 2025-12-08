@@ -7,6 +7,11 @@ export default function Login(){
   const [error,setError] = useState(null)
   const navigate = useNavigate()
 
+    useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) navigate('/app');
+  }, []);
+
   async function handleSubmit(e){
     e.preventDefault()
     setError(null)
@@ -25,6 +30,7 @@ export default function Login(){
         return
       }
 
+      localStorage.setItem('user', JSON.stringify(body.user));
       localStorage.setItem('token', body.token)
       navigate('/app');
     }

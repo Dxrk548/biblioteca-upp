@@ -1,0 +1,93 @@
+.contenedor {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid-libros {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card-libro {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.card-libro:hover {
+  transform: translateY(-3px);
+}
+
+.autor {
+  color: #555;
+  font-style: italic;
+}
+
+.estado {
+  margin-top: 10px;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.estado.disponible {
+  background: #d7ffd7;
+  color: #098400;
+}
+
+.estado.prestado {
+  background: #ffd6d6;
+  color: #b30000;
+}
+
+.btn-solicitar {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-solicitar:hover {
+  background-color: #005ec4;
+}
+
+.buscador {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.buscador input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+.buscador button {
+  padding: 10px 15px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.buscador button:hover {
+  background: #1e7e34;
+}

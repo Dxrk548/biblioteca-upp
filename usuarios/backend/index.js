@@ -63,6 +63,50 @@ async function main() {
     }
   });
 
+    // SOLICITAR LIBRO
+app.post("/api/prestamos/solicitar", async (req, res) => {
+  const { id_usuario, id_libro } = req.body;
+
+  if (!id_usuario || !id_libro) {
+    return res.status(400).json({ ok: false, message: "Faltan datos" });
+  }
+
+  try {
+    // Verificar que el libro existe y está disponible
+    const [libro] = await db.execute(
+      "SELECT estado FROM libros WHERE id_libro = ?",
+      [id_libro]
+    );
+
+    if (libro.length === 0)
+      return res.status(404).json({ ok: false, message: "El libro no existe" });
+
+    if (libro[0].estado !== "disponible")
+      return res.status(400).json({ ok: false, message: "Libro no disponible" });
+
+    // Insertar préstamo
+    await db.execute(
+      `INSERT INTO prestamos 
+       (id_libro, id_usuario, fecha_prestamo, fecha_devolucion, estado)
+       VALUES (?, ?, NOW(), NULL, 'prestado')`,
+      [id_libro, id_usuario]
+    );
+
+    // Marcar libro como prestado
+    await db.execute(
+      "UPDATE libros SET estado = 'prestado' WHERE id_libro = ?",
+      [id_libro]
+    );
+
+    res.json({ ok: true, message: "Libro solicitado con éxito" });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ ok: false, message: "Error al solicitar libro" });
+  }
+});
+
+
     // OBTENER TODOS LOS LIBROS (CATÁLOGO)
 app.get("/api/libros", async (req, res) => {
   try {
